@@ -1,0 +1,34 @@
+.LoginForm{
+    margin:50px auto;
+    text-align:center;
+}
+
+.LoginForm form{
+    display:inline-block;
+}
+
+
+.LoginForm table{
+    border-collapse :collapse;
+}
+
+
+.LoginForm table th,td{
+    padding :5px;
+    
+    
+}
+
+.LoginForm #idDiv,#pwdDiv{
+        color:red;
+        font-size:1em;
+        font-weight:bold;
+        text-align:left;
+}
+
+.LoginForm #loginDiv{
+    color:blue;
+    font-size:1em;
+    font-weight:bold;
+    text-align:center;
+}
