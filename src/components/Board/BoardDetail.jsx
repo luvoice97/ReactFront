@@ -22,7 +22,7 @@ const BoardDetail = () => {
         } else {
             setError('에러');
         }
-    }, [seq]);
+    }, [getData]);
 
     if (error) {
         return <div style={{ color: 'red' }}>{error}</div>;
