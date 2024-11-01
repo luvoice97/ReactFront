@@ -14,7 +14,7 @@ const BoardDetail = () => {
                 setError('오류가 발생했습니다.');
                 console.error(err);
             });
-    }, [seq]); // Add seq as a dependency of getData
+    }, [seq]);
 
     useEffect(() => {
         if (seq) {
@@ -22,7 +22,7 @@ const BoardDetail = () => {
         } else {
             setError('에러');
         }
-    }, [getData]); // Now getData is stable, and we can add it safely
+    }, [seq, getData]); // Add seq directly to the dependency array
 
     if (error) {
         return <div style={{ color: 'red' }}>{error}</div>;
