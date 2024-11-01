@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { useParams } from 'react-router-dom';
 
 const BoardDetail = () => {
@@ -7,14 +7,14 @@ const BoardDetail = () => {
     const [detail, setDetail] = useState(null);
     const [error, setError] = useState('');
 
-    const getData = () => {
+    const getData = useCallback(() => {
         axios.get(`http://211.188.51.9:8090/SpringReact/board/detail?seq=${seq}`)
             .then(res => setDetail(res.data))
             .catch(err => {
                 setError('오류가 발생했습니다.');
                 console.error(err);
             });
-    };
+    }, [seq]); // Add seq as a dependency of getData
 
     useEffect(() => {
         if (seq) {
@@ -22,7 +22,7 @@ const BoardDetail = () => {
         } else {
             setError('에러');
         }
-    }, [getData]);
+    }, [getData]); // Now getData is stable, and we can add it safely
 
     if (error) {
         return <div style={{ color: 'red' }}>{error}</div>;
